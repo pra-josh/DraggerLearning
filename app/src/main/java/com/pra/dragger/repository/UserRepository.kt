@@ -1,11 +1,13 @@
 package com.pra.dragger.repository
 
 import android.util.Log
+import com.pra.dragger.Constants
+import javax.inject.Inject
 
-class UserRepository {
+class UserRepository @Inject constructor() {
 
     fun saveUser(email: String, password: String) {
-        Log.d("TAG", "User Saved in DB")
+        Log.d(Constants.TAG, "User Saved in DB")
     }
 
 
