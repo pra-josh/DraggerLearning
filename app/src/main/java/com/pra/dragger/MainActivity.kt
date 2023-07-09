@@ -16,15 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-      ///  val emailService = EmailService()
      //   val userRepository = UserRepository()
 
         val draggerComponent = DaggerUserRegistrationComponent.create();
             //  val userregi =dragger.getUserRegistrationService();
-        //val userRegistrationService = UserRegistrationService(emailService, userRepository)
-      //  draggeruserregistration.registerUser("jshprakash7@gmail.com", "Prakash")
+       // val userRegistrationService = UserRegistrationService(emailService, userRepository)
+       draggerComponent.getUserRegistrationService().registerUser("jshprakash7@gmail.com", "Prakash")
         val emailservice = draggerComponent.getEmailService()
         emailservice.send("sssdsds","sss","sdsds")
 
