@@ -9,21 +9,22 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-   // @Inject
-     private lateinit var  emailService:EmailService
+    // @Inject
+    private lateinit var emailService: EmailService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-     //   val userRepository = UserRepository()
+        //   val userRepository = UserRepository()
 
         val draggerComponent = DaggerUserRegistrationComponent.create();
-            //  val userregi =dragger.getUserRegistrationService();
-       // val userRegistrationService = UserRegistrationService(emailService, userRepository)
-       draggerComponent.getUserRegistrationService().registerUser("jshprakash7@gmail.com", "Prakash")
+        //  val userregi =dragger.getUserRegistrationService();
+        // val userRegistrationService = UserRegistrationService(emailService, userRepository)
+        draggerComponent.getUserRegistrationService()
+            .registerUser("jshprakash7@gmail.com", "Prakash")
         val emailservice = draggerComponent.getEmailService()
-        emailservice.send("sssdsds","sss","sdsds")
+        emailservice.send("sssdsds", "sss", "sdsds")
 
     }
 }
