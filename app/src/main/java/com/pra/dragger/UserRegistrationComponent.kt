@@ -7,10 +7,9 @@ import dagger.Component
 @Component
 interface UserRegistrationComponent {
 
-    fun getUserRegistrationService(): UserRegistrationService
+   // fun getUserRegistrationService(): UserRegistrationService
 
-    fun getEmailService(): EmailService
-
-  //  fun inject(mainActivity: MainActivity)
+  //  fun getEmailService(): EmailService
+    fun inject(mainActivity: MainActivity)
 
 }
