@@ -12,8 +12,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userRegistrationService: UserRegistrationService
 
-    @Inject
-    lateinit var emailService: EmailService
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             "Prakash")
 
     //    val emailservice = dragger.getEmailService()
-         emailService.send("sssdsds", "sss", "sdsds")
+        // emailService.send("sssdsds", "sss", "sdsds")
 
     }
 }
