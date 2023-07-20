@@ -8,9 +8,18 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class UserRepositoryServiceModule {
+class UserRepositoryServiceModule {
 
-    @Binds
-    abstract fun getSqlRepositoryRepository(sqlRepository: SqlRepository): UserRepository
+    @SqlQualifier
+    @Provides
+    fun getSqlRepositoryRepository(sqlRepository: SqlRepository): UserRepository {
+        return sqlRepository
+    }
 
+
+    @FireBaseQualifier
+    @Provides
+    fun getFireBaseRepositoryRepository(): UserRepository {
+        return FireBaseRepository()
+    }
 }
