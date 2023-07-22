@@ -3,7 +3,9 @@ package com.pra.dragger.di
 import com.pra.dragger.MainActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [UserRepositoryServiceModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 

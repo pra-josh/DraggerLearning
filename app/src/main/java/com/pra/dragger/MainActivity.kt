@@ -7,6 +7,7 @@ import com.pra.dragger.di.FireBaseQualifier
 import com.pra.dragger.di.MessageQualifier
 import com.pra.dragger.di.NotificationServiceModule
 import com.pra.dragger.di.SqlQualifier
+import com.pra.dragger.repository.EmailService
 import com.pra.dragger.repository.NotificationService
 import com.pra.dragger.repository.UserRepository
 import com.pra.dragger.service.UserRegistrationService
@@ -23,10 +24,21 @@ class MainActivity : AppCompatActivity() {
     @Inject
    lateinit var notificationService: NotificationService
 
+/*
 
     @SqlQualifier
     @Inject
     lateinit var  userRepository: UserRepository
+*/
+
+
+    @Inject
+    lateinit var emailService: EmailService
+
+
+    @Inject
+    lateinit var emailService1: EmailService
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
