@@ -33,15 +33,13 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val dragger = DaggerUserRegistrationComponent.builder().
-            notificationServiceModule(NotificationServiceModule(3)).build()
-
+        val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
         dragger.inject(this)
 
         userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
-        userRepository.saveUser("gggg","sfsfs")
-         notificationService.send("dsgddh","dgfdh","yrthr")
+     //   userRepository.saveUser("gggg","sfsfs")
+     //    notificationService.send("dsgddh","dgfdh","yrthr")
       //  userRepository.saveUser("pooja","hjh")
      //   notificationService.send("pooja","hhjhj","kkjj")
         //    val emailservice = dragger.getEmailService()
