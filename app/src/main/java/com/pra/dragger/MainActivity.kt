@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
    lateinit var notificationService: NotificationService
 
-/*
 
+/*
     @SqlQualifier
     @Inject
     lateinit var  userRepository: UserRepository
@@ -45,10 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
+     //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
+        val dragger = (application as UserApplication).dagger
         dragger.inject(this)
 
-        userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
+         userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
      //   userRepository.saveUser("gggg","sfsfs")
      //    notificationService.send("dsgddh","dgfdh","yrthr")

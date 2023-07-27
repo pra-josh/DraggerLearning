@@ -2,6 +2,7 @@ package com.pra.dragger.repository
 
 import android.util.Log
 import com.pra.dragger.Constants
+import com.pra.dragger.di.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -9,7 +10,7 @@ interface NotificationService {
     fun send(to: String, from: String, body: String?)
 }
 
-@Singleton
+@ApplicationScope
 class EmailService @Inject constructor() : NotificationService {
     override fun send(to: String, from: String, body: String?) {
         Log.d(Constants.TAG, "Email Sent $to")
