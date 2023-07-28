@@ -6,7 +6,8 @@ import dagger.Component
 import javax.inject.Singleton
 
 @ApplicationScope
-@Component(modules = [UserRepositoryServiceModule::class, NotificationServiceModule::class])
+@Component(modules = [UserRepositoryServiceModule::class,
+    NotificationServiceModule::class,AnalyticsServiceModule::class])
 interface UserRegistrationComponent {
 
     // fun getUserRegistrationService(): UserRegistrationService
