@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
      //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
         val dragger = (application as UserApplication).dagger
         dragger.inject(this)
-
          userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
      //   userRepository.saveUser("gggg","sfsfs")

@@ -13,11 +13,11 @@ class MixPanel(): AnalyticsService{
         Log.d("Dagger Mix Panel ", "event Name > "+eventName+
             " event type > "+eventType)
     }
-
 }
-/*
+
 class FireBaseAnalytics(): AnalyticsService{
-    override fun trackEvent() {
-        Log.d("Dagger", "FireBase")
+    override fun trackEvent(eventName:String,eventType:String) {
+        Log.d("Dagger FireBase Panel ", "event Name > "+eventName+
+                " event type > "+eventType)
     }
-}*/
+}
