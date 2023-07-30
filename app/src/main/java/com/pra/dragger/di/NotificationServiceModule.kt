@@ -12,17 +12,18 @@ import javax.inject.Named
 @Module
 class NotificationServiceModule {
 
+    @ActivityScope
     @MessageQualifier
     @Provides
     fun getMessageService(
         retryCount: Int, @TCount
         totalcount: Int,
-        @Named("mixPanel")
         analyticsService: AnalyticsService
     ): NotificationService {
         return MessageService(retryCount, totalcount, analyticsService)
     }
 
+    @ActivityScope
     @Named("EmailService")
     @Provides
     fun getEmailService(emailService: EmailService): NotificationService {

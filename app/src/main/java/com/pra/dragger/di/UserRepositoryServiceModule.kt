@@ -12,6 +12,7 @@ import javax.inject.Named
 @Module
 class UserRepositoryServiceModule {
 
+    @ActivityScope
     @SqlQualifier
     @Provides
     fun getSqlRepositoryRepository(sqlRepository: SqlRepository): UserRepository {
@@ -19,9 +20,10 @@ class UserRepositoryServiceModule {
     }
 
 
+    @ActivityScope
     @FireBaseQualifier
     @Provides
-    fun getFireBaseRepositoryRepository(@Named("mixPanel") analyticsService: AnalyticsService): UserRepository {
+    fun getFireBaseRepositoryRepository(analyticsService: AnalyticsService): UserRepository {
         return FireBaseRepository(analyticsService)
     }
 }

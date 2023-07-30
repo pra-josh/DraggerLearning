@@ -11,17 +11,16 @@ import javax.inject.Named
 class AnalyticsServiceModule {
 
     @ApplicationScope
-    @Named("mixPanel")
     @Provides
     fun getMixAnalyticsService(): AnalyticsService {
         return MixPanel();
     }
 
 
-    @ApplicationScope
+    /*@ApplicationScope
     @Named("FireBase")
     @Provides
     fun getFireBaseAnalyticsService(): AnalyticsService {
         return FireBaseAnalytics();
-    }
+    }*/
 }

@@ -7,6 +7,7 @@ import com.pra.dragger.di.FireBaseQualifier
 import com.pra.dragger.di.MessageQualifier
 import com.pra.dragger.di.NotificationServiceModule
 import com.pra.dragger.di.SqlQualifier
+import com.pra.dragger.di.UserRegistrationComponent
 import com.pra.dragger.repository.EmailService
 import com.pra.dragger.repository.NotificationService
 import com.pra.dragger.repository.UserRepository
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var  userRepository: UserRepository
 */
 
+    lateinit var dagger: UserRegistrationComponent
+
 
     @Inject
     lateinit var emailService: EmailService
@@ -46,9 +49,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
      //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
-        val dragger = (application as UserApplication).dagger
-        dragger.inject(this)
-         userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
+        val appComponent = (application as UserApplication).appComponent
+        val userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(10,2,appComponent)
+         userRegistrationComponent.inject(this)
+        userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
      //   userRepository.saveUser("gggg","sfsfs")
      //    notificationService.send("dsgddh","dgfdh","yrthr")

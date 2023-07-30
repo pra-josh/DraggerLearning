@@ -1,18 +1,19 @@
 package com.pra.dragger
 
 import android.app.Application
-import com.pra.dragger.di.DaggerUserRegistrationComponent
+import com.pra.dragger.di.AppComponent
+import com.pra.dragger.di.DaggerAppComponent
 import com.pra.dragger.di.UserRegistrationComponent
 
 class UserApplication : Application() {
 
 
-    lateinit var dagger: UserRegistrationComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        dagger = DaggerUserRegistrationComponent.factory().create(100, 3)
+        appComponent = DaggerAppComponent.builder().build()
 
     }
 }
