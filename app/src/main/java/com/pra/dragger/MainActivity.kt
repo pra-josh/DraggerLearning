@@ -2,15 +2,9 @@ package com.pra.dragger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pra.dragger.di.DaggerUserRegistrationComponent
-import com.pra.dragger.di.FireBaseQualifier
-import com.pra.dragger.di.MessageQualifier
-import com.pra.dragger.di.NotificationServiceModule
-import com.pra.dragger.di.SqlQualifier
 import com.pra.dragger.di.UserRegistrationComponent
 import com.pra.dragger.repository.EmailService
 import com.pra.dragger.repository.NotificationService
-import com.pra.dragger.repository.UserRepository
 import com.pra.dragger.service.UserRegistrationService
 import javax.inject.Inject
 import javax.inject.Named
@@ -23,16 +17,17 @@ class MainActivity : AppCompatActivity() {
 
     @Named("EmailService")
     @Inject
-   lateinit var notificationService: NotificationService
+    lateinit var notificationService: NotificationService
 
 
-/*
-    @SqlQualifier
-    @Inject
-    lateinit var  userRepository: UserRepository
-*/
+    /*
+        @SqlQualifier
+        @Inject
+        lateinit var  userRepository: UserRepository
+    */
 
-    lateinit var dagger: UserRegistrationComponent
+
+    lateinit var userRegistrationComponent: UserRegistrationComponent
 
 
     @Inject
@@ -48,16 +43,17 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-     //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
+        //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
         val appComponent = (application as UserApplication).appComponent
-        val userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(10,2,appComponent)
-         userRegistrationComponent.inject(this)
+         userRegistrationComponent =
+            appComponent.getUserRegistrationFactory().create(10, 2)
+        userRegistrationComponent.inject(this)
         userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
-     //   userRepository.saveUser("gggg","sfsfs")
-     //    notificationService.send("dsgddh","dgfdh","yrthr")
-      //  userRepository.saveUser("pooja","hjh")
-     //   notificationService.send("pooja","hhjhj","kkjj")
+        //   userRepository.saveUser("gggg","sfsfs")
+        //    notificationService.send("dsgddh","dgfdh","yrthr")
+        //  userRepository.saveUser("pooja","hjh")
+        //   notificationService.send("pooja","hhjhj","kkjj")
         //    val emailservice = dragger.getEmailService()
         // emailService.send("sssdsds", "sss", "sdsds")
 

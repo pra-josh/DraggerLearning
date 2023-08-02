@@ -6,8 +6,8 @@ import dagger.Component
 @ApplicationScope
 @Component(modules = [AnalyticsServiceModule::class])
 interface AppComponent {
-    fun getMixAnalyticsService():AnalyticsService
-
+ //   fun getMixAnalyticsService():AnalyticsService
+    fun getUserRegistrationFactory():UserRegistrationComponent.factory
 
 
 }

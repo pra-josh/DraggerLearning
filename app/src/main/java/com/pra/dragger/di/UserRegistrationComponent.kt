@@ -7,20 +7,18 @@ import dagger.Subcomponent
 import javax.inject.Singleton
 
 @ActivityScope
-@Component(
-    dependencies = [AppComponent::class],
+@Subcomponent(
     modules = [UserRepositoryServiceModule::class, NotificationServiceModule::class]
 )
 interface UserRegistrationComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Component.Factory
+    @Subcomponent.Factory
     interface factory {
         fun create(
             @BindsInstance count: Int,
-            @TCount @BindsInstance tcount: Int,
-            appComponent: AppComponent
+            @TCount @BindsInstance tcount: Int
         ): UserRegistrationComponent
     }
 }
