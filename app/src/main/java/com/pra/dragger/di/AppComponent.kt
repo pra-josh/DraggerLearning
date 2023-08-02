@@ -7,7 +7,7 @@ import dagger.Component
 @Component(modules = [AnalyticsServiceModule::class])
 interface AppComponent {
  //   fun getMixAnalyticsService():AnalyticsService
-    fun getUserRegistrationFactory():UserRegistrationComponent.factory
+    fun getUserRegistrationFactory():UserRegistrationComponent.Builder
 
 
 }

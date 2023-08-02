@@ -14,11 +14,13 @@ interface UserRegistrationComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Subcomponent.Factory
-    interface factory {
-        fun create(
-            @BindsInstance count: Int,
-            @TCount @BindsInstance tcount: Int
-        ): UserRegistrationComponent
+    @Subcomponent.Builder
+    interface Builder {
+        fun build():UserRegistrationComponent
+
+        fun getRetryCount(@BindsInstance retryCount:Int):Builder
+
+        fun getTCount(@BindsInstance @TCount tCount:Int):Builder
+
     }
 }

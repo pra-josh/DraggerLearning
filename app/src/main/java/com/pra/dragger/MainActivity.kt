@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         //   val dragger = DaggerUserRegistrationComponent.factory().create(10,2)
         val appComponent = (application as UserApplication).appComponent
          userRegistrationComponent =
-            appComponent.getUserRegistrationFactory().create(10, 2)
+            appComponent.getUserRegistrationFactory().getRetryCount(2).getTCount(10).build()
         userRegistrationComponent.inject(this)
         userRegistrationService.registerUser("jshprakash7@gmail.com", "Prakash")
 
